@@ -7,7 +7,7 @@ require 'spec/expectations'
 
 module SnapsHelper
   def app
-    @app ||= JustPlayed.new 'localhost'
+    @app ||= JustPlayed.new 'localhost:8999'
   end
 
   def test_server

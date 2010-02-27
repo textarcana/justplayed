@@ -506,6 +506,7 @@
 				GCC_PREFIX_HEADER = JustPlayed_Prefix.pch;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -518,6 +519,7 @@
 				GCC_PREFIX_HEADER = JustPlayed_Prefix.pch;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};
@@ -533,7 +535,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.2.1;
+				SDKROOT = iphoneos3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -549,7 +551,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.2.1;
+				SDKROOT = iphoneos3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -565,7 +567,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.2.1;
+				SDKROOT = iphoneos3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Distribution;
@@ -581,6 +583,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.0;
 			};
 			name = Distribution;
 		};
@@ -597,6 +600,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.0;
 			};
 			name = Distribution;
 		};
@@ -613,6 +617,7 @@
 				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.1.sdk/usr/include/libxml2;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -629,6 +634,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};

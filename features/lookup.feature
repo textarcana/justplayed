@@ -3,6 +3,7 @@ Feature: Lookup
   As a radio listener with network access
   I want to look up the songs I bookmarked
 
+  @debug
   Scenario: Looking up a snap
     Given a list of radio stations "KNRK"
     And a test server
