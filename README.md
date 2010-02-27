@@ -1,6 +1,6 @@
 # Cucumber functional tests for iPhone
 
-http://github.com/textarcana/justplayed
+[github.com/textarcana/justplayed](http://github.com/textarcana/justplayed)
 
 [**Here is my fork**](http://github.com/textarcana/justplayed) of the Cucumber functional tests for iPhone that [Ian Dees presented at OSCON 2009](http://www.oscon.com/oscon2009/public/schedule/detail/8073)
 
