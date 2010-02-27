@@ -2,9 +2,11 @@
 
 See also [Ian's instructions](http://github.com/undees/justplayed)
 
-First, run the shell script included here.  That should create 2 directories called `justplayed` and `dielectric`
+First, run `iphone_cucumber_installer.sh` to get all the gems and git repos.  
 
-Start the dielectric server,
+That should create 2 directories called `justplayed` and `dielectric`
+
+Then start the dielectric server,
 
      cd dielectric/
      ruby dielectric.rb
@@ -13,19 +15,23 @@ that should start a Sinatra server on port 4567
 
 ## Build
 
-There are 2 build targets.  You have to build them both.  Order matters.
+There are 2 build targets.  You have to build them both, in debug mode.  Order matters.
+
 Build "Brominet" in debug mode.
 THEN build the main app, also in debug mode.
 
 At this point you should notice a new service that is running on port 50000
 
-This service is running on the emulator.  It is a tiny Ruby Web service called Encumber, running on CocoaHTTPServer.
+This service is running on the emulator.
 
 ## Test
 
 To run the Cucumber tests, open another tab and
 
-    cd 
+    cd justplayed
+    cucumber
+
+You should see the emulator walk through Ian's tests.
 
 ## Troubleshooting
 
