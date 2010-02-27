@@ -1,6 +1,7 @@
 ## Configure
 
-See also [Ian's instructions](http://github.com/undees/justplayed)
+See also [Ian's instructions](http://github.com/undees/justplayed) 
+
 
 First, run `iphone_cucumber_installer.sh` to get all the gems and git repos.  
 
@@ -12,6 +13,10 @@ Then start the dielectric server,
      ruby dielectric.rb
 
 that should start a Sinatra server on port 4567
+
+
+
+
 
 ## Build
 
