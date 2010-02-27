@@ -1,5 +1,7 @@
 ## Configure
 
+See also [Ian's instructions](http://github.com/undees/justplayed)
+
 First, run the shell script included here.  That should create 2 directories called `justplayed` and `dielectric`
 
 Start the dielectric server,
