@@ -31,10 +31,11 @@ To run the Cucumber tests, open another tab and
     cd justplayed
     cucumber
 
-You should see the emulator walk through Ian's tests.
+You should see the emulator walk through [Ian's tests.](http://www.oscon.com/oscon2009/public/schedule/detail/8073)
 
 ## Troubleshooting
 
 My fork should work, but just in case, here is how I changed Ian's fork:
 
 1. SDK version in Justplayed is wrong, but I learned that you can change it to 3.0 through the Info window in the XCODE project.
+2. updated the Header Search Path so it referenced the 3.1 sdk
