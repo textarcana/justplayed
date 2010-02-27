@@ -9,35 +9,42 @@
 See also [Ian's instructions](http://github.com/undees/justplayed) 
 
 
-First, run `iphone_cucumber_installer.sh` to get all the gems and git repos.  
+First get all the gems and git repos:
+
+    sudo gem install rake rspec cucumber chronic httparty sinatra
+
+    git clone git://github.com/undees/dielectric.git
+
+    git clone git://github.com/textarcana/justplayed
+    git clone git://github.com/undees/brominet justplayed/brominet
+    git clone git://github.com/undees/cocoahttpserver justplayed/server
+    git clone git://github.com/undees/asi-http-request justplayed/asi-http-request
+
 
 That should create 2 directories called `justplayed` and `dielectric`
-
-Then start the dielectric server,
-
-     cd dielectric/
-     ruby dielectric.rb
-
-that should start a Sinatra server on port 4567
-
-
-
-
 
 ## Build
 
 There are 2 build targets.  You have to build them both, in debug mode.  Order matters.
 
-Build "Brominet" in debug mode.
-THEN build the main app, also in debug mode.
+Build **Brominet** in debug mode.
+*Then* build the main app, also in debug mode.
 
-At this point you should notice a new service that is running on port 50000
+At this point you should notice a new service that is running on port 50000.
 
 This service is running on the emulator.
 
 ## Test
 
-To run the Cucumber tests, open another tab and
+First, start the Dielectric server,
+
+     cd dielectric/
+     ruby dielectric.rb
+
+that should start a **Sinatra** server on port 4567
+
+
+Then to run the Cucumber tests, open another tab and
 
     cd justplayed
     cucumber
@@ -48,5 +55,5 @@ You should see the emulator walk through [Ian's tests.](http://www.oscon.com/osc
 
 My fork should work, but just in case, here is how I changed Ian's fork:
 
-1. SDK version in Justplayed is wrong, but I learned that you can change it to 3.0 through the Info window in the XCODE project.
+1. SDK version in Justplayed is wrong, but I learned that you can change it to 3.0 through the Info window in the XCode project.
 2. updated the Header Search Path so it referenced the 3.1 sdk
