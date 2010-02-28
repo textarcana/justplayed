@@ -1,7 +1,9 @@
 Noah's installation instructions
 ================================
 
-Noah's `installation instructions <http://github.com/textarcana/justplayed/tree/master/doc/install/>`_, including Ruby gems.
+In the doc/install directory, you will find `Noah's installation instructions <http://github.com/textarcana/justplayed/tree/master/doc/install/>`_, including Ruby gems and some helpful links.
+
+Below are Ian's original install instructions, which you should read first.
 
 Just Played
 ===========
