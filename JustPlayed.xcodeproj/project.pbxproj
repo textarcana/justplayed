@@ -596,7 +596,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JustPlayed_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = BROMINET_ENABLED;
-				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.1.sdk/usr/include/libxml2;
+				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.1.sdk/usr/include/libxml2;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -614,7 +614,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JustPlayed_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = BROMINET_ENABLED;
-				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.1.sdk/usr/include/libxml2;
+				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.1.sdk/usr/include/libxml2;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
 				SDKROOT = iphoneos3.0;
@@ -630,7 +630,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JustPlayed_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = BROMINET_ENABLED;
-				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.1.sdk/usr/include/libxml2;
+				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.1.sdk/usr/include/libxml2;
 				INFOPLIST_FILE = Resources/Info.plist;
 				PRODUCT_NAME = JustPlayed;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
