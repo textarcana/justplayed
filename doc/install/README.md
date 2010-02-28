@@ -4,6 +4,8 @@
 
 [**Here is my fork**](http://github.com/textarcana/justplayed) of the Cucumber functional tests for iPhone that [Ian Dees presented at OSCON 2009](http://www.oscon.com/oscon2009/public/schedule/detail/8073)
 
+And [**Here is some background**](http://del.icio.us/thefangmonster/oscon2009) on using Ruby to drive acceptance tests on the iPhone.
+
 ## Configure
 
 See also [Ian's instructions](http://github.com/undees/justplayed) 
