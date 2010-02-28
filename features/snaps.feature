@@ -24,6 +24,7 @@ Feature: Snaps
       | KBOO  | 5:03 AM  | no   |
       | Stand | R.E.M.   | yes  |
 
+  @failz
   Scenario: Deleting snaps
     Given the following snaps:
       | station | time    |

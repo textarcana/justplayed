@@ -7,6 +7,7 @@ Feature: Stations
     Given a list of radio stations ""
     Then I should be invited to press Locate
 
+  @failz
   Scenario: Looking up stations
     Given a test server
     When I look up my stations
