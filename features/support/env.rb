@@ -5,7 +5,7 @@ require 'fileutils'
 require 'chronic'
 require 'spec/expectations'
 
-HOST = '10.0.1.11'
+HOST = 'localhost'
 
 module SnapsHelper
 
