@@ -1,7 +1,7 @@
 Noah's installation instructions
 ================================
 
-http://gist.github.com/316489
+Noah's `installation instructions <doc/>`, including Ruby gems.
 
 Just Played
 ===========
