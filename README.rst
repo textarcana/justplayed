@@ -1,7 +1,7 @@
 Noah's installation instructions
 ================================
 
-Noah's `installation instructions <doc/>`_, including Ruby gems.
+Noah's `installation instructions <./doc/>`_, including Ruby gems.
 
 Just Played
 ===========
