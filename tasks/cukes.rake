@@ -24,6 +24,10 @@ namespace :cukes do
                        "--format pretty"]
   end
 
+  desc 'should pass if the iPhone emulator is running on localhost'
+
+  task :localhost => :restart
+
   Cucumber::Rake::Task.new(:restart, 'should pass if the iPhone emulator is running on localhost') do |t|
 
     t.cucumber_opts = [
