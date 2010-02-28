@@ -1,3 +1,8 @@
+Noah's installation instructions
+================================
+
+http://gist.github.com/316489
+
 Just Played
 ===========
 
