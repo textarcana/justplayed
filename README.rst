@@ -1,7 +1,7 @@
 Noah's installation instructions
 ================================
 
-Noah's `installation instructions <doc/>`_, including Ruby gems.
+Noah's `installation instructions <http://github.com/textarcana/justplayed/doc/install/>`_, including Ruby gems.
 
 Just Played
 ===========
