@@ -1,10 +1,11 @@
 require 'cucumber'
 require 'cucumber/rake/task'
 
+desc 'Cucumber meets iPod'
 
-desc ''
+task :test => :cukes
 
-Cucumber::Rake::Task.new(:test) do |t|
+Cucumber::Rake::Task.new(:cukes) do |t|
 
   t.cucumber_opts = [
                      "-t ~@restart",
