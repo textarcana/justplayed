@@ -15,7 +15,7 @@ Feature: Lookup
       | title                | artist           |
       | Been Caught Stealing | Jane's Addiction |
 
-  @restart
+  @restart @failz
   Scenario: Partial success
     Given a list of radio stations "KNRK"
     And a test server
