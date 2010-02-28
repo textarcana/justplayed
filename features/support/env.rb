@@ -5,13 +5,18 @@ require 'fileutils'
 require 'chronic'
 require 'spec/expectations'
 
+HOST = '10.0.1.11'
+
 module SnapsHelper
+
+  include Config
+
   def app
-    @app ||= JustPlayed.new 'localhost:8999'
+    @app ||= JustPlayed.new HOST
   end
 
   def test_server
-    'http://localhost:4567'
+    %{http://#{HOST}:4567}
   end
 
   def snaps_from_table(t, with_timestamp = nil)
@@ -33,7 +38,10 @@ module SnapsHelper
   end
 end
 
-World(SnapsHelper)
+World(
+      SnapsHelper,
+      Spec::Matchers
+      )
 
 Before do
   app.reset
