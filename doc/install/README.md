@@ -38,6 +38,11 @@ This service is running on the emulator.
 
 ### Troubleshooting the build
 
+The server should be running on port 50000 if the emulator is up and
+running, with the app active.  However sometimes that doesn't happen.
+In such cases, use the checklist below to verify build configuration
+is correct.
+
     1. clean all if any previous builds have been performed
 
     2. Active SDK is Simulator 3.0
