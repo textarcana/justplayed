@@ -36,6 +36,23 @@ At this point you should notice a new service that is running on port 50000.
 
 This service is running on the emulator.
 
+### Troubleshooting the build
+
+    1. clean all if any previous builds have been performed
+
+    2. Active SDK is Simulator 3.0
+
+    3. Active Configuration is Debug
+
+    4. Active target/executable is JustPlayed
+
+    5. right-click on the BROMINET build target
+
+    6. choose to Build "Brominet" and start
+
+    7. verify the server is running: `nc localhost 50000`
+
+
 ## Test
 
 First, start the Dielectric server,
