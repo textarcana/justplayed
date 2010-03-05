@@ -7,9 +7,8 @@ require 'spec/expectations'
 
 HOST = 'localhost'
 
-module SnapsHelper
 
-  include Config
+module SnapsHelper
 
   def app
     @app ||= JustPlayed.new HOST
