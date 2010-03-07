@@ -42,7 +42,7 @@ module Encumber
       end
 
       Net::HTTP.post_quick \
-        "http://#{@host}:#{@port}/", command
+      "http://#{@host}:#{@port}/", command
     end
 
     def dump
@@ -51,7 +51,46 @@ module Encumber
 
     def press(xpath)
       command 'simulateTouch', 'viewXPath', xpath
+    end
+
+
+    def type_in_field text, xpath
+      command('setText', 
+              'text',      text,
+              'viewXPath', xpath)
       sleep 1
     end
+
+    # swipe to the right
+    def swipe xpath
+      command('simulateSwipe',  
+              'viewXPath', xpath)
+    end
+
+    # swipe to the left
+    def swipe_left xpath
+      command('simulateLeftSwipe',  
+              'viewXPath', xpath)
+    end
+
+    def swipe_and_wait xpath
+      swipe xpath
+      sleep 1
+    end
+
+    def swipe_left_and_wait xpath
+      swipe_left xpath
+      sleep 1
+    end
+
+    def tap xpath
+      press xpath
+    end
+
+    def tap_and_wait xpath
+      press xpath
+      sleep 1
+    end
+
   end
 end
