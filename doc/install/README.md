@@ -79,6 +79,13 @@ You should see the emulator walk through [Ian's tests.](http://www.youtube.com/w
 
 ## Troubleshooting
 
+### Network issues
+
+If you are using a **Time Capsule** as your wifi router, you need to
+[enable Personal Web sharing](http://forum.portforward.com/YaBB.cgi?num=1213734073) (on the time capsule).
+
+### Updating the example code to the 3.0 SDK
+
 My fork should work, but just in case, here is how I changed Ian's fork:
 
 1. SDK version in Justplayed is wrong, but I learned that you can change it to 3.0 through the Info window in the XCode project.
