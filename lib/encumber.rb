@@ -27,7 +27,7 @@ module Encumber
       system("open #{path_for_xcode_project}")
     end
 
-    def quit name_for_app
+    def _quit name_for_app
       system(<<-HERE)
           osascript -e 'tell application "#{name_for_app}"'\\
             -e 'quit'\\
@@ -37,13 +37,22 @@ module Encumber
       sleep 7
     end
 
+    def quit_all
+      quit_xcode
+      quit_simulator
+    end
+
     def quit_xcode
-      quit "Xcode"
+      _quit "Xcode"
     end
 
     def quit_simulator
-      quit "iPhone Simulator"
+      _quit "iPhone Simulator"
     end
+
+    # Attempt to launch whichever build target is selected.
+    #
+    # TODO: Select the Brominet target prior to launching.
 
     def launch_app_in_simulator
       system(<<-HERE)
