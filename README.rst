@@ -5,7 +5,7 @@ In the doc/install directory, you will find `Noah's installation instructions <h
 
 You may also want to take a look at the `README for Noah's fork of Brominet <http://github.com/textarcana/brominet>`_.
 
-Note that this fork, and the `fork of Brominet <http://github.com/textarcana/brominet>`_, implement some new features, such as simulating a swipe to the left.
+Note that this fork, and the `fork of Brominet <http://github.com/textarcana/brominet>`_, implement some new features, such as simulating a swipe to the left.  **The two forks are intended to be used together.**
 
 Just Played
 ===========
