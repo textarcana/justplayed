@@ -69,9 +69,8 @@ module Encumber
       quit "iPhone Simulator"
     end
 
-    # Attempt to launch whichever build target is selected.
-    #
-    # TODO: Select the Brominet target prior to launching.
+    # Attempt to launch the executable for the active target.
+    # See set_target_for_brominet for configuration of targets.
 
     def launch_app_in_simulator
       system(<<-HERE)
