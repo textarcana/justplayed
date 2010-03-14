@@ -27,6 +27,18 @@ module Encumber
       @project = path_for_xcode_project
     end
 
+    def set_target_for_brominet
+      system(<<-HERE)
+          osascript -e 'tell application "Xcode"'\\
+            -e 'set myProject to active project document'\\
+            -e 'set SDK to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"'\\
+            -e 'tell myProject'\\
+            -e 'set the active target to the target named "Brominet"'\\
+            -e 'set value of build setting "SDKROOT" of every build configuration of the active target to SDK'\\
+            -e 'end tell'
+          HERE
+    end
+
     def start
       system("open #{@project}")
     end
