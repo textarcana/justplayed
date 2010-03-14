@@ -27,6 +27,9 @@ module Encumber
       system("open #{path_for_xcode_project}")
     end
 
+    # This is a universal quit method, that leverages AppleScript to
+    # close any arbitrary application.
+
     def _quit name_for_app
       system(<<-HERE)
           osascript -e 'tell application "#{name_for_app}"'\\
