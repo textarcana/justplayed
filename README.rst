@@ -1,9 +1,11 @@
 Noah's installation instructions
 ================================
 
-In the doc/install directory, you will find `Noah's installation instructions <http://github.com/textarcana/justplayed/tree/master/doc/install/>`_, including Ruby gems and some helpful links.
+In the doc/install directory, you will find `Noah's installation instructions <http://github.com/textarcana/justplayed/tree/master/doc/install/>`_, including Ruby gems and some helpful links.  Below are Ian's original install instructions, which you should read first.
 
-Below are Ian's original install instructions, which you should read first.
+You may also want to take a look at the `README for Noah's fork of Brominet <http://github.com/textarcana/brominet>`_.
+
+Note that this fork, and the `fork of Brominet <http://github.com/textarcana/brominet>`_, implement some new features, such as simulating a swipe to the left.
 
 Just Played
 ===========
