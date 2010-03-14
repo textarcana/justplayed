@@ -24,13 +24,17 @@ module Encumber
 
   class XcodeProject
     def initialize path_for_xcode_project
-      system("open #{path_for_xcode_project}")
+      @project = path_for_xcode_project
+    end
+
+    def start
+      system("open #{@project}")
     end
 
     # This is a universal quit method, that leverages AppleScript to
     # close any arbitrary application.
 
-    def _quit name_for_app
+    def quit name_for_app
       system(<<-HERE)
           osascript -e 'tell application "#{name_for_app}"'\\
             -e 'quit'\\
@@ -46,11 +50,11 @@ module Encumber
     end
 
     def quit_xcode
-      _quit "Xcode"
+      quit "Xcode"
     end
 
     def quit_simulator
-      _quit "iPhone Simulator"
+      quit "iPhone Simulator"
     end
 
     # Attempt to launch whichever build target is selected.
