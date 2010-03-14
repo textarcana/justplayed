@@ -45,8 +45,8 @@ module Encumber
     end
 
     def quit_all
-      quit_xcode
       quit_simulator
+      quit_xcode
     end
 
     def quit_xcode
