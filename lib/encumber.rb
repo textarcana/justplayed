@@ -21,6 +21,33 @@ module Net
 end
 
 module Encumber
+
+  class XcodeProject
+    def initialize path_for_xcode_project
+      system("open #{path_for_xcode_project}")
+    end
+
+    def quit
+      system(<<-HERE)
+          osascript -e 'tell application "Xcode"'\\
+            -e 'quit'\\
+            -e 'end tell'
+    HERE
+    end
+
+    def launch_app_in_simulator
+      system(<<-HERE)
+          osascript -e 'tell application "Xcode"'\\
+            -e 'set myProject to active project document'\\
+            -e 'launch the active executable of myProject'\\
+            -e 'end tell'
+      HERE
+
+      sleep 7
+    end
+  end
+
+
   class GUI
     def initialize(host='localhost', port=50000)
       @host, @port = host, port
@@ -43,6 +70,25 @@ module Encumber
 
       Net::HTTP.post_quick \
       "http://#{@host}:#{@port}/", command
+    end
+
+    def restart
+      begin
+        @gui.quit
+      rescue EOFError
+        # no-op
+      end
+
+      sleep 3
+
+      yield if block_given?
+
+      launch
+
+    end
+
+    def quit
+      command 'terminateApp'
     end
 
     def dump
