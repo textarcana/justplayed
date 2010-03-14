@@ -31,13 +31,16 @@ module Encumber
       system(<<-HERE)
           osascript -e 'tell application "Xcode"'\\
             -e 'set myProject to active project document'\\
-            -e 'set SDK to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"'\\
             -e 'tell myProject'\\
             -e 'set the active target to the target named "Brominet"'\\
-            -e 'set value of build setting "SDKROOT" of every build configuration of the active target to SDK'\\
+            -e 'set active build configuration type to build configuration type "Debug"'\\
+            -e 'set active SDK to "iphonesimulator3.0"'\\
+            -e 'set value of build setting "SDKROOT" of build configuration "Debug" of active target to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"'\\
+            -e 'end tell'\\
             -e 'end tell'
           HERE
     end
+
 
     def start
       system("open #{@project}")
