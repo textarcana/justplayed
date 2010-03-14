@@ -27,12 +27,22 @@ module Encumber
       system("open #{path_for_xcode_project}")
     end
 
-    def quit
+    def quit name_for_app
       system(<<-HERE)
-          osascript -e 'tell application "Xcode"'\\
+          osascript -e 'tell application "#{name_for_app}"'\\
             -e 'quit'\\
             -e 'end tell'
-    HERE
+          HERE
+
+      sleep 7
+    end
+
+    def quit_xcode
+      quit "Xcode"
+    end
+
+    def quit_simulator
+      quit "iPhone Simulator"
     end
 
     def launch_app_in_simulator
@@ -41,12 +51,11 @@ module Encumber
             -e 'set myProject to active project document'\\
             -e 'launch the active executable of myProject'\\
             -e 'end tell'
-      HERE
+          HERE
 
       sleep 7
     end
   end
-
 
   class GUI
     def initialize(host='localhost', port=50000)
