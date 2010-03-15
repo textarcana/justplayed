@@ -73,14 +73,17 @@ module Encumber
     # See set_target_for_brominet for configuration of targets.
 
     def launch_app_in_simulator
-      system(<<-HERE)
-          osascript -e 'tell application "Xcode"'\\
-            -e 'set myProject to active project document'\\
-            -e 'launch the active executable of myProject'\\
-            -e 'end tell'
-          HERE
+      status_for_launch = %x{osascript -e 'tell application "Xcode"'\\
+                                       -e 'set myProject to active project document'\\
+                                       -e 'launch the active executable of myProject'\\
+                                       -e 'end tell'\\
+                             2>&1}
 
-      sleep 7
+
+      sleep 7 unless status_for_launch =~ /Unable to launch executable./
+
+      status_for_launch
+
     end
   end
 
