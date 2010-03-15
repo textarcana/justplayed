@@ -28,15 +28,16 @@ module Encumber
     end
 
     def set_target_for_brominet
-      system(<<-HERE)
-          osascript -e 'tell application "Xcode"'\\
-            -e 'set myProject to active project document'\\
-            -e 'set SDK to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"'\\
-            -e 'tell myProject'\\
-            -e 'set the active target to the target named "Brominet"'\\
-            -e 'set value of build setting "SDKROOT" of every build configuration of the active target to SDK'\\
-            -e 'end tell'
-          HERE
+      %x{osascript<<APPLESCRIPT
+tell application "Xcode"
+  set myProject to active project document
+  set SDK to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"
+  tell myProject
+    set the active target to the target named "Brominet"
+    set value of build setting "SDKROOT" of every build configuration of the active target to SDK
+  end tell
+APPLESCRIPT
+ 2>&1}
     end
 
     def start
@@ -47,13 +48,17 @@ module Encumber
     # close any arbitrary application.
 
     def quit name_for_app
-      system(<<-HERE)
-          osascript -e 'tell application "#{name_for_app}"'\\
-            -e 'quit'\\
-            -e 'end tell'
-          HERE
+      status_for_quit = %x{osascript<<APPLESCRIPT
+tell application "#{name_for_app}"
+  quit
+end tell
+APPLESCRIPT
+ 2>&1}
 
       sleep 7
+
+      status_for_quit
+
     end
 
     def quit_all
@@ -73,12 +78,13 @@ module Encumber
     # See set_target_for_brominet for configuration of targets.
 
     def launch_app_in_simulator
-      status_for_launch = %x{osascript -e 'tell application "Xcode"'\\
-                                       -e 'set myProject to active project document'\\
-                                       -e 'launch the active executable of myProject'\\
-                                       -e 'end tell'\\
-                             2>&1}
-
+      status_for_launch = %x{osascript<<APPLESCRIPT
+tell application "Xcode"
+  set myProject to active project document
+  launch the active executable of myProject
+end tell
+APPLESCRIPT
+ 2>&1}
 
       sleep 7 unless status_for_launch =~ /Unable to launch executable./
 
