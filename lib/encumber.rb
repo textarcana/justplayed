@@ -50,13 +50,17 @@ module Encumber
     # close any arbitrary application.
 
     def quit name_for_app
-      system(<<-HERE)
-          osascript -e 'tell application "#{name_for_app}"'\\
-            -e 'quit'\\
-            -e 'end tell'
-          HERE
+      status_for_quit = %x{osascript<<APPLESCRIPT
+tell application "#{name_for_app}"
+  quit
+end tell
+APPLESCRIPT
+ 2>&1}
 
       sleep 7
+
+      status_for_quit
+
     end
 
     def quit_all
@@ -77,14 +81,18 @@ module Encumber
     # TODO: Select the Brominet target prior to launching.
 
     def launch_app_in_simulator
-      system(<<-HERE)
-          osascript -e 'tell application "Xcode"'\\
-            -e 'set myProject to active project document'\\
-            -e 'launch the active executable of myProject'\\
-            -e 'end tell'
-          HERE
+      status_for_launch = %x{osascript<<APPLESCRIPT
+tell application "Xcode"
+  set myProject to active project document
+  launch the active executable of myProject
+end tell
+APPLESCRIPT
+ 2>&1}
 
-      sleep 7
+      sleep 7 unless status_for_launch =~ /Unable to launch executable./
+
+      status_for_launch
+
     end
   end
 
