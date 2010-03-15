@@ -28,22 +28,23 @@ module Encumber
     end
 
     def set_target_for_brominet
-      system(<<-HERE)
-          osascript -e 'tell application "Xcode"'\\
-            -e 'set myProject to active project document'\\
-            -e 'tell myProject'\\
-            -e 'set the active target to the target named "Brominet"'\\
-            -e 'set active build configuration type to build configuration type "Debug"'\\
-            -e 'set active SDK to "iphonesimulator3.0"'\\
-            -e 'set value of build setting "SDKROOT" of build configuration "Debug" of active target to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"'\\
-            -e 'end tell'\\
-            -e 'end tell'
-          HERE
+      %x{osascript<<APPLESCRIPT
+tell application "Xcode"
+  set myProject to active project document
+  tell myProject
+    set the active target to the target named "Brominet"
+    set active build configuration type to build configuration type "Debug"
+    set active SDK to "iphonesimulator3.0"
+    set value of build setting "SDKROOT" of build configuration "Debug" of active target to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"
+  end tell
+end tell
+APPLESCRIPT
+ 2>&1}
     end
 
 
     def start
-      system("open #{@project}")
+      %x{open #{@project}}
     end
 
     # This is a universal quit method, that leverages AppleScript to
@@ -77,8 +78,6 @@ APPLESCRIPT
     end
 
     # Attempt to launch whichever build target is selected.
-    #
-    # TODO: Select the Brominet target prior to launching.
 
     def launch_app_in_simulator
       status_for_launch = %x{osascript<<APPLESCRIPT
