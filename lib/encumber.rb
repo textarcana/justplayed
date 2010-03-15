@@ -1,4 +1,4 @@
-require 'enumerator'
+require 'enumerator' 
 require 'net/http'
 require 'tagz'
 
@@ -72,21 +72,19 @@ module Encumber
       quit "iPhone Simulator"
     end
 
-    # Attempt to launch the executable for the active target.
-    # See set_target_for_brominet for configuration of targets.
+    # Attempt to launch whichever build target is selected.
+    #
+    # TODO: Select the Brominet target prior to launching.
 
     def launch_app_in_simulator
-      status_for_launch = %x{osascript -e 'tell application "Xcode"'\\
-                                       -e 'set myProject to active project document'\\
-                                       -e 'launch the active executable of myProject'\\
-                                       -e 'end tell'\\
-                             2>&1}
+      system(<<-HERE)
+          osascript -e 'tell application "Xcode"'\\
+            -e 'set myProject to active project document'\\
+            -e 'launch the active executable of myProject'\\
+            -e 'end tell'
+          HERE
 
-
-      sleep 7 unless status_for_launch =~ /Unable to launch executable./
-
-      status_for_launch
-
+      sleep 7
     end
   end
 
