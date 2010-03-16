@@ -27,19 +27,40 @@ module Encumber
       @project = path_for_xcode_project
     end
 
-    def set_target_for_brominet
+    def set_target_for_simulator_debug name
+      
+      set_target({
+                   :name         => name,
+                   :config       => 'Debug',
+                   :sdk          => 'iphonesimulator3.0',
+                   :path_for_sdk => '/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/'
+                 })
+    end
+
+
+    def set_target opt
+
+      @name_for_target    = opt[:name]
+      @configuration_type = opt[:config]
+      @sdk                = opt[:sdk]
+      @path_for_sdk       = opt[:path_for_sdk]
+
       %x{osascript<<APPLESCRIPT
 tell application "Xcode"
   set myProject to active project document
   tell myProject
-    set the active target to the target named "Brominet"
-    set active build configuration type to build configuration type "Debug"
-    set active SDK to "iphonesimulator3.0"
-    set value of build setting "SDKROOT" of build configuration "Debug" of active target to "/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.0.sdk/"
+    set the active target to the target named "#{@name_for_target}"
+    set active build configuration type to build configuration type "#{@configuration_type}"
+    set active SDK to "#{@sdk}"
+    set value of build setting "SDKROOT" of build configuration "#{@configuration_type}" of active target to "#{@path_for_sdk}"
   end tell
 end tell
 APPLESCRIPT
  2>&1}
+    end
+
+    def set_target_for_brominet
+      set_target_for_simulator_debug 'Brominet'
     end
 
 
@@ -78,6 +99,8 @@ APPLESCRIPT
     end
 
     # Attempt to launch whichever build target is selected.
+    #
+    # TODO: Select the Brominet target prior to launching.
 
     def launch_app_in_simulator
       status_for_launch = %x{osascript<<APPLESCRIPT
