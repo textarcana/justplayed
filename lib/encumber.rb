@@ -118,10 +118,23 @@ APPLESCRIPT
 
     # Reset the iPhone simulator, removing all installed apps and
     # settings.  Great for teardowns.
+    #
+    # IMPORTANT: the elipsis in the Reset menu item name, is NOT three
+    # dots.  It is a special Mac character: "…"
 
-    def delete_app_in_simulator
-      status_for_launch = %x{osascript<<APPLESCRIPT
+    def reset_simulator
+      status_for_delete = %x{osascript<<APPLESCRIPT
+activate application "iPhone Simulator"
 
+tell application "System Events"
+    click menu item "Reset Content and Settings…" of menu "iPhone Simulator" of menu bar of process "iPhone Simulator"
+
+    tell process "iPhone Simulator"
+            tell window 1
+                    click button 2
+            end tell
+    end tell
+end tell
 APPLESCRIPT
  2>&1}
 
