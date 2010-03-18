@@ -13,6 +13,15 @@ IRB.conf[:LOAD_MODULES] += ['yaml']
 #  Encumber, the Ruby adapter for Brominet
 IRB.conf[:LOAD_MODULES] += ['lib/encumber']
 
+
+# run arbitrary AppleScript fragment
+def apple script
+  puts %x{osascript<<APPLESCRIPT
+#{script}
+APPLESCRIPT
+ 2>&1}
+end
+
 # New Encumber instance, using the IP or host name of an iPhone
 # running Brominet.  Port 50000 will be used automatically, so you
 # just need to supply 1 argument: the host name or IP.
