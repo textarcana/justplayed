@@ -99,8 +99,6 @@ APPLESCRIPT
     end
 
     # Attempt to launch whichever build target is selected.
-    #
-    # TODO: Select the Brominet target prior to launching.
 
     def launch_app_in_simulator
       status_for_launch = %x{osascript<<APPLESCRIPT
@@ -116,6 +114,21 @@ APPLESCRIPT
       status_for_launch
 
     end
+
+
+    # Reset the iPhone simulator, removing all installed apps and
+    # settings.  Great for teardowns.
+
+    def delete_app_in_simulator
+      status_for_launch = %x{osascript<<APPLESCRIPT
+
+APPLESCRIPT
+ 2>&1}
+
+      status_for_delete
+
+    end
+
   end
 
   class GUI
