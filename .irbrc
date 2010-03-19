@@ -8,7 +8,7 @@ IRB.conf[:SAVE_HISTORY] = 10 * 1000
 IRB.conf[:HISTORY_FILE] = ".irb_history"
 
 #  standard libraries
-IRB.conf[:LOAD_MODULES] += ['yaml']
+IRB.conf[:LOAD_MODULES] += ['nokogiri', 'yaml']
 
 #  Encumber, the Ruby adapter for Brominet
 IRB.conf[:LOAD_MODULES] += ['lib/encumber']
