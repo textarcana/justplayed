@@ -202,6 +202,12 @@ APPLESCRIPT
       @dom = Nokogiri::XML self.dump
     end
 
+    # Idiomatic way to say wait_for_element
+
+    def wait_for xpath
+      wait_for_element xpath
+    end
+
     # Wait for element.  Returns an array of elements that match the
     # xpath, or nil if nothing matches the xpath and the timeout
     # period has expired.
