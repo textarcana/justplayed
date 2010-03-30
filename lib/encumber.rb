@@ -211,17 +211,22 @@ APPLESCRIPT
     # Wait for element.  Returns an array of elements that match the
     # xpath, or nil if nothing matches the xpath and the timeout
     # period has expired.
+    # 
+    # Note that there's no need to sleep between polls.  At most, we
+    # can only poll about every other second, because it takes that
+    # long to request and receive the Brominet GUI XML.
 
     def wait_for_element xpath
-      iteration_count = @timeout * 10
+      start_time_for_wait = Time.now
 
-      iteration_count.times do
-        elements =  dom_for_gui.search(xpath)
+      loop do
+        elapsed_time_in_seconds = Time.now - start_time_for_wait
+        elements                =  dom_for_gui.search(xpath)
+
         return elements unless elements.empty?
-        sleep 0.05
-      end
 
-      return nil
+        return nil if elapsed_time_in_seconds >= @timeout
+      end
     end
 
     def type_in_field text, xpath
