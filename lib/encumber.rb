@@ -220,10 +220,13 @@ APPLESCRIPT
       start_time_for_wait = Time.now
 
       loop do
-        elapsed_time_in_seconds = Time.now - start_time_for_wait
-        elements                =  dom_for_gui.search(xpath)
+        elements                = dom_for_gui.search(xpath)
 
         return elements unless elements.empty?
+
+        # Important: get the elapsed time AFTER getting the gui and
+        # evaluating the xpath.
+        elapsed_time_in_seconds = Time.now - start_time_for_wait
 
         return nil if elapsed_time_in_seconds >= @timeout
       end
