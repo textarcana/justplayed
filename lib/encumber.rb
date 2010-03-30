@@ -1,6 +1,7 @@
 require 'enumerator' 
 require 'net/http'
 require 'tagz'
+require 'nokogiri'
 
 module Net
   class HTTP
@@ -24,7 +25,7 @@ module Encumber
 
   class XcodeProject
     def initialize path_for_xcode_project
-      @project = path_for_xcode_project
+      @project        = path_for_xcode_project
     end
 
     def set_target_for_simulator_debug name
@@ -145,8 +146,9 @@ APPLESCRIPT
   end
 
   class GUI
-    def initialize(host='localhost', port=50000)
+    def initialize(host='localhost', port=50000, timeout_in_seconds=4)
       @host, @port = host, port
+      @timeout     = timeout_in_seconds
     end
 
     def command(name, *params)
@@ -195,6 +197,26 @@ APPLESCRIPT
       command 'simulateTouch', 'viewXPath', xpath
     end
 
+    # Nokogiri XML DOM for the current Brominet XML representation of the GUI
+    def dom_for_gui
+      @dom = Nokogiri::XML self.dump
+    end
+
+    # Wait for element.  Returns an array of elements that match the
+    # xpath, or nil if nothing matches the xpath and the timeout
+    # period has expired.
+
+    def wait_for_element xpath
+      iteration_count = @timeout * 10
+
+      iteration_count.times do
+        elements =  dom_for_gui.search(xpath)
+        return elements unless elements.empty?
+        sleep 0.05
+      end
+
+      return nil
+    end
 
     def type_in_field text, xpath
       command('setText', 
